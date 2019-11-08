@@ -19,9 +19,9 @@ Route::get('/kegiatan', 'BeritaController@index');
 Route::get('/kegiatan/{id}', 'BeritaController@show');
 
 Route::get('/bimbel', 'HomeController@bimbel');
-// Route::get('/bimbel', function () {
-//     return view('bimbel');
-// });
+Route::get('/satu', function () {
+    return view('satu');
+});
 
 Route::get('/kontak', 'HomeController@kontak');
 // Route::get('/kontak', function () {

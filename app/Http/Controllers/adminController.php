@@ -22,7 +22,7 @@ class adminController extends Controller
         $user->delete();
         return redirect('/admin')->with('message', 'User berhasil di hapus!');
     }
-    
+
     public function infohome()
     {
         return view('/info/home');

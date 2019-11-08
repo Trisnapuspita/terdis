@@ -17,7 +17,7 @@ class TestimoniController extends Controller
      */
     public function index()
     {
-        $testimonis = Testimoni::all(); 
+        $testimonis = Testimoni::all();
         return view('info/testimoni', ['testimonis' => $testimonis]);
     }
 
@@ -48,7 +48,7 @@ class TestimoniController extends Controller
 
         $filename = $request->foto->getClientOriginalName();
         $request->foto->storeAs('public/upload', $filename);
-        
+
         Testimoni::create([
             'nama'      => $request->nama,
             'status'    => $request->status,
@@ -99,7 +99,7 @@ class TestimoniController extends Controller
 
         $filename = $request->foto->getClientOriginalName();
         $request->foto->storeAs('public/upload', $filename);
-        
+
         Testimoni::find($id)->update([
             'nama'      => $request->nama,
             'status'    => $request->status,
@@ -124,14 +124,15 @@ class TestimoniController extends Controller
 
     public function welcome()
     {
-        $testimonis = Testimoni::all(); 
-        $misis = Misi::all(); 
+        $testimonis = Testimoni::all();
+        $misis = Misi::all();
         return view('welcome', ['testimonis' => $testimonis, 'misis' => $misis]);
     }
 
     public function tentangkami()
     {
-        $misis = Misi::all(); 
+        $misis = Misi::all();
         return view('tentangkami', ['misis' => $misis]);
     }
+
 }

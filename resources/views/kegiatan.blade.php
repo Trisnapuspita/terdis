@@ -4,7 +4,7 @@
 
 		<!-- Basic -->
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">	
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 		<title>Teras Diskusi</title>
 
@@ -41,12 +41,12 @@
 		<link rel="stylesheet" href="vendor/rs-plugin/css/settings.css">
 		<link rel="stylesheet" href="vendor/rs-plugin/css/layers.css">
 		<link rel="stylesheet" href="vendor/rs-plugin/css/navigation.css">
-		
+
 		<!-- Demo CSS -->
 		<link rel="stylesheet" href="css/demos/demo-education.css">
 
 		<!-- Skin CSS -->
-		<link rel="stylesheet" href="css/skins/skin-education.css"> 
+		<link rel="stylesheet" href="css/skins/skin-education.css">
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="css/custom.css">
@@ -79,7 +79,7 @@
 										<nav class="header-nav-top mr-0">
 											<ul class="nav">
 												@if (Auth::guest())
-												<li><a href="{{ url('/daftar-bimbel') }}"><span class="ws-nowrap"><i class="fas fa-user-plus"></i></i> Daftar</span></a></li>
+												{{-- <li><a href="{{ url('/daftar-bimbel') }}"><span class="ws-nowrap"><i class="fas fa-user-plus"></i></i> Daftar</span></a></li> --}}
 												<li><a href="{{ url('/login') }}"><span class="ws-nowrap"><i class="fas fa-user"></i> Masuk</span></a></li>
 												@else
 												<li><a href="{{ url('/login') }}"><span class="ws-nowrap"><i class="fas fa-user"></i> {{ Auth::user()->name }}</span></a></li>
@@ -123,41 +123,14 @@
 															Berita
 														</a>
 													</li>
-													<!-- <li class="dropdown">
-														<a class="dropdown-item dropdown-toggle" href="{{ url('/bimbel') }}">
-															Bimbel GPEC
-														</a>
-														<ul class="dropdown-menu">
-															<li>
-																<a class="dropdown-item" data-hash data-hash-offset="160" href="/bimbel#1">	
-																	Tentang Kami
-																</a>
-															</li>
-															<li>
-																<a class="dropdown-item" data-hash data-hash-offset="160" href="/bimbel#2">
-																	Program
-																</a>
-															</li>
-															<li>
-																<a class="dropdown-item" data-hash data-hash-offset="160" href="/bimbel#3">
-																	Pengajar
-																</a>
-															</li>
-															<li>
-																<a class="dropdown-item" data-hash data-hash-offset="160" href="/bimbel#4">
-																	Pendaftaran
-																</a>
-															</li>
-															<li>
-																<a class="dropdown-item" data-hash data-hash-offset="160"  href="/bimbel#5">
-																	Testimoni
-																</a>
-															</li>
-														</ul>
-													</li> -->
 													<li>
 														<a class="nav-link" href="{{ url('/kontak') }}">
-															Kontak 
+															Kontak
+														</a>
+                                                    </li>
+                                                    <li>
+														<a class="nav-link" href="{{ url('/gurudigital') }}">
+															Guru Digital
 														</a>
 													</li>
 												</ul>
@@ -174,7 +147,7 @@
 				</div>
 				</header>
 			<div role="main" class="main">
-				
+
 				<section class="page-header custom-page-header background-color-quaternary parallax mb-0" data-plugin-parallax data-plugin-options="{'speed': 1.5}" data-image-src="/img/demos/education/parallax/parallax-6.jpg">
 					<div class="container">
 						<div class="row align-items-center">
@@ -199,7 +172,7 @@
 								<section class="section border-0 my-0">
 									<div class="container">
 										<div class="row justify-content-center mb-5">
-											
+
 											@foreach($beritas as $berita)
 											<div class="col-md-6 col-lg-4 col-xl-3 mb-4 pb-3 appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="400">
 												<div class="thumb-info thumb-info-hide-wrapper-bg custom-thumb-info-style-1">
@@ -216,7 +189,7 @@
 												</div>
 											</div>
 											@endforeach
-									
+
 										</div>
 									</div>
 								</section>
@@ -290,20 +263,20 @@
 		<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 		<script src="vendor/vide/vide.min.js"></script>
 		<script src="vendor/jquery.countdown/jquery.countdown.min.js"></script>
-		
+
 		<!-- Theme Base, Components and Settings -->
 		<script src="js/theme.js"></script>
-		
+
 		<!-- Current Page Vendor and Views -->
 		<script src="vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
 		<script src="vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
 		<!-- Demo -->
 		<script src="js/demos/demo-education.js"></script>
-		
+
 		<!-- Theme Custom -->
 		<script src="js/custom.js"></script>
-		
+
 		<!-- Theme Initialization Files -->
 		<script src="js/theme.init.js"></script>
 
@@ -316,7 +289,7 @@
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		
+
 			ga('create', 'UA-12345678-1', 'auto');
 			ga('send', 'pageview');
 		</script>

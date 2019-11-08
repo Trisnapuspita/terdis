@@ -18,7 +18,7 @@ class UserController extends Controller
         return view('siswa/nilai', ['user' => $user]);
     }
 
-    
+
 
     public function nilai(Request $request, $idsoal, $iduser)
     {
@@ -48,4 +48,5 @@ class UserController extends Controller
         ]);
         return view('siswa/hasil', ['nilai' => $nilai, 'pilihans'=>$pilihans, 'jawaban' => $a]);
     }
+
 }

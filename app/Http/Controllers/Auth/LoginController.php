@@ -41,18 +41,9 @@ class LoginController extends Controller
     protected function validateLogin(Request $request)
     {
         $this->validate($request, [
-            $this->username() => 'required', 
+            $this->username() => 'required',
             'password' => 'required',
-            'captcha'  => 'required|captcha',
+            // 'captcha'  => 'required|captcha',
         ]);
     }
-
-    // public function logout(Request $request)
-    // {
-    //     $this->guard()->logout();
-
-    //     $request->session()->invalidate();
-
-    //     return redirect('/bimbel');
-    // }
 }
