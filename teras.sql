@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2019 at 07:16 AM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.11
+-- Waktu pembuatan: 04 Des 2019 pada 00.08
+-- Versi server: 10.1.36-MariaDB
+-- Versi PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `beritas`
+-- Struktur dari tabel `beritas`
 --
 
 CREATE TABLE `beritas` (
@@ -38,16 +38,17 @@ CREATE TABLE `beritas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `beritas`
+-- Dumping data untuk tabel `beritas`
 --
 
 INSERT INTO `beritas` (`id`, `judul_berita`, `isi_berita`, `foto`, `created_at`, `updated_at`) VALUES
-(1, 'Tes Berita', 'Tes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes Berita.\r\n\r\nTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes Berita.Tes BeritaTes BeritaTes BeritaTes BeritaTes Berita.Tes Berita.\r\n\r\nTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes Berita.', '22_pandas.jpg', '2018-12-18 05:00:31', '2018-12-18 05:00:31');
+(1, 'Tes Berita', 'Tes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes Berita.\r\n\r\nTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes Berita.Tes BeritaTes BeritaTes BeritaTes BeritaTes Berita.Tes Berita.\r\n\r\nTes BeritaTes BeritaTes BeritaTes BeritaTes BeritaTes Berita.', 'a.jpg', '2018-12-18 05:00:31', '2018-12-18 05:00:31'),
+(4, 'aaaaaaaaaaa', 'aaaaaaaaaaa', 'a.jpg', '2019-11-17 01:08:43', '2019-11-17 01:08:43');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kelass`
+-- Struktur dari tabel `kelass`
 --
 
 CREATE TABLE `kelass` (
@@ -58,19 +59,20 @@ CREATE TABLE `kelass` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `kelass`
+-- Dumping data untuk tabel `kelass`
 --
 
 INSERT INTO `kelass` (`id`, `kelas`, `created_at`, `updated_at`) VALUES
-(1, 'Kelas 7', '2018-12-18 13:08:14', '2018-12-18 13:08:14'),
+(1, 'Kelas 7A', '2018-12-18 13:08:14', '2019-11-16 23:12:33'),
 (2, 'Kelas 8', '2018-12-18 13:10:31', '2018-12-18 13:10:31'),
 (3, 'Kelas 9', '2018-12-18 13:10:41', '2018-12-18 13:10:41'),
-(4, 'Kelas 10', '2018-12-31 08:00:37', '2018-12-31 08:00:37');
+(4, 'Kelas 10', '2018-12-31 08:00:37', '2018-12-31 08:00:37'),
+(5, 'Kelas 7A', '2019-11-16 22:54:24', '2019-11-16 22:54:24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kelas_materi`
+-- Struktur dari tabel `kelas_materi`
 --
 
 CREATE TABLE `kelas_materi` (
@@ -80,17 +82,24 @@ CREATE TABLE `kelas_materi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `kelas_materi`
+-- Dumping data untuk tabel `kelas_materi`
 --
 
 INSERT INTO `kelas_materi` (`id`, `kelas_id`, `materi_id`) VALUES
 (1, 3, 5),
-(2, 4, 5);
+(2, 4, 5),
+(3, 1, 1),
+(4, 1, 2),
+(5, 2, 3),
+(6, 1, 6),
+(7, 3, 4),
+(8, 2, 9),
+(9, 1, 10);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kelas_soal`
+-- Struktur dari tabel `kelas_soal`
 --
 
 CREATE TABLE `kelas_soal` (
@@ -100,7 +109,7 @@ CREATE TABLE `kelas_soal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `kelas_soal`
+-- Dumping data untuk tabel `kelas_soal`
 --
 
 INSERT INTO `kelas_soal` (`id`, `kelas_id`, `soal_id`) VALUES
@@ -111,7 +120,7 @@ INSERT INTO `kelas_soal` (`id`, `kelas_id`, `soal_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `materis`
+-- Struktur dari tabel `materis`
 --
 
 CREATE TABLE `materis` (
@@ -124,20 +133,44 @@ CREATE TABLE `materis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `materis`
+-- Dumping data untuk tabel `materis`
 --
 
 INSERT INTO `materis` (`id`, `nama`, `deskripsi`, `file`, `created_at`, `updated_at`) VALUES
-(1, 'coba tes materi', 'coba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes materi.\r\n\r\ncoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes materi.\r\n\r\ncoba tes matericoba tes matericoba tes matericoba tes matericoba tes materi.', 'makalah-encoding.doc', '2018-12-18 15:05:58', '2019-01-22 08:10:07'),
-(2, 'tes tes', 'tes testes testes testes testes testes testes testes testes testes testes testes tes', '3035-6041-1-SM.pdf', '2018-12-19 05:51:09', '2019-01-22 08:05:03'),
-(3, 'materi kelas 8', 'materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8.\r\n\r\nmateri kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8.', 'Present Simple Tense.pdf', '2018-12-19 05:51:33', '2018-12-19 05:51:33'),
-(4, 'kelas kelas99', 'kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99', 'FUTURE_Tense.pdf', '2018-12-19 06:31:58', '2018-12-19 06:31:58'),
-(5, 'yaaaa', 'bbsjbwshvhvv', '3145161834-Trisna Hastuti Puspita NIngrum.doc', '2019-01-28 03:12:27', '2019-01-28 03:26:06');
+(1, 'coba tes materiiiii', 'coba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes materi.\r\n\r\ncoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes matericoba tes materi.\r\n\r\ncoba tes matericoba tes matericoba tes matericoba tes matericoba tes materi.', 'brit.jpg', '2018-12-18 15:05:58', '2019-11-26 04:22:27'),
+(2, 'tes tes tes', 'tes testes testes testes testes testes testes testes testes testes testes testes tes', 'brit.jpg', '2018-12-19 05:51:09', '2019-11-26 04:01:38'),
+(3, 'materi kelas 8', 'materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8.\r\n\r\nmateri kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8materi kelas 8.', 'brit.jpg', '2018-12-19 05:51:33', '2019-11-26 04:02:02'),
+(4, 'kelas kelas99', 'kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99kelas kelas99', 'Tabel Binomial.png', '2018-12-19 06:31:58', '2019-11-26 04:03:25'),
+(5, 'yaaaa', 'bbsjbwshvhvv', '3145161834-Trisna Hastuti Puspita NIngrum.doc', '2019-01-28 03:12:27', '2019-01-28 03:26:06'),
+(6, 'coba tes materiii', 'deewwwwwwwwwwwwwwwwwwwwwwwwwwwwww', 'brit.jpg', '2019-11-26 04:02:30', '2019-11-26 04:02:30'),
+(7, 'coba tes materiiisxs', 'xsaaaaaaaaaaaaaaa', 'BinomialProbability(N=40).jpg', '2019-11-26 04:29:11', '2019-11-26 04:29:11'),
+(8, 'coba tes materiiisxs', 'xsaaaaaaaaaaaaaaa', 'BinomialProbability(N=40).jpg', '2019-11-26 04:30:21', '2019-11-26 04:30:21'),
+(9, 'coba tes materiiidc', 'ceeeeeeeeeeeeee', 'BinomialProbability(N=40).jpg', '2019-11-26 04:30:41', '2019-11-26 04:30:41'),
+(10, 'coba tes materiiivfvfgg', 'dddddddddddd', '212922.jpg', '2019-11-28 04:44:46', '2019-11-28 04:44:46');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `messages`
+-- Struktur dari tabel `materi_subject`
+--
+
+CREATE TABLE `materi_subject` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `materi_id` int(10) UNSIGNED NOT NULL,
+  `subject_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `materi_subject`
+--
+
+INSERT INTO `materi_subject` (`id`, `materi_id`, `subject_id`) VALUES
+(6, 10, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `messages`
 --
 
 CREATE TABLE `messages` (
@@ -151,17 +184,22 @@ CREATE TABLE `messages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `messages`
+-- Dumping data untuk tabel `messages`
 --
 
 INSERT INTO `messages` (`id`, `from`, `to`, `read`, `text`, `created_at`, `updated_at`) VALUES
 (1, 3, 2, 1, 'tes', '2018-12-19 05:27:39', '2018-12-19 05:27:44'),
-(2, 2, 3, 0, 'masuk', '2018-12-19 05:27:47', '2018-12-19 05:27:47');
+(2, 2, 3, 0, 'masuk', '2018-12-19 05:27:47', '2018-12-19 05:27:47'),
+(3, 5, 7, 0, 'hwyy', '2019-11-27 04:00:34', '2019-11-27 04:00:34'),
+(4, 5, 7, 0, 'jhjhh', '2019-11-27 04:00:38', '2019-11-27 04:00:38'),
+(5, 5, 7, 0, 'p', '2019-11-27 04:00:40', '2019-11-27 04:00:40'),
+(6, 5, 7, 0, 'p', '2019-11-27 04:00:41', '2019-11-27 04:00:41'),
+(7, 5, 7, 0, 'p', '2019-11-27 04:00:41', '2019-11-27 04:00:41');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -171,7 +209,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -197,12 +235,18 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (20, '2019_01_23_153528_kelas_materi_relation', 6),
 (21, '2019_01_26_121936_drop_kelas_id', 6),
 (22, '2019_01_26_123611_kelass_soals', 6),
-(25, '2019_02_07_095746_gambar_soal', 7);
+(25, '2019_02_07_095746_gambar_soal', 7),
+(30, '2019_11_28_075638_create_subjects_table', 8),
+(31, '2019_11_28_080727_soal_subject_table', 8),
+(32, '2019_11_28_090254_materi_subject_table', 8),
+(33, '2019_11_28_093947_materi_subject_table', 9),
+(34, '2019_11_28_094127_materi_subject_table', 10),
+(35, '2019_11_28_095134_materi_subject_table', 11);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `misis`
+-- Struktur dari tabel `misis`
 --
 
 CREATE TABLE `misis` (
@@ -213,18 +257,18 @@ CREATE TABLE `misis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `misis`
+-- Dumping data untuk tabel `misis`
 --
 
 INSERT INTO `misis` (`id`, `poin`, `created_at`, `updated_at`) VALUES
-(1, 'Menyediakan dan menyelenggarakan kegiatan belajar bagi siswa-siswi.', '2018-12-18 05:11:20', '2018-12-18 05:11:20'),
+(1, 'Menyediakan dan menyelenggarakan kegiatan belajar bagi siswa dan siswi.', '2018-12-18 05:11:20', '2019-11-17 16:45:38'),
 (2, 'Melatih, membimbing dan memotivasi siswa-siswi dalam berkarya serta menghasilkan karya yang bermanfaat.', '2018-12-18 05:11:33', '2018-12-18 05:11:33'),
 (3, 'Menanamkan dan mengajarkan sikap berbagi kepada sesama manusia.', '2018-12-18 05:11:45', '2018-12-18 05:11:45');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Struktur dari tabel `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -236,7 +280,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pendaftarans`
+-- Struktur dari tabel `pendaftarans`
 --
 
 CREATE TABLE `pendaftarans` (
@@ -255,7 +299,7 @@ CREATE TABLE `pendaftarans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pendaftarans`
+-- Dumping data untuk tabel `pendaftarans`
 --
 
 INSERT INTO `pendaftarans` (`id`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `no_hp`, `e_mail`, `asal_sekolah`, `kelas`, `created_at`, `updated_at`) VALUES
@@ -265,7 +309,7 @@ INSERT INTO `pendaftarans` (`id`, `nama`, `jenis_kelamin`, `tempat_lahir`, `tang
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pertanyaans`
+-- Struktur dari tabel `pertanyaans`
 --
 
 CREATE TABLE `pertanyaans` (
@@ -279,7 +323,7 @@ CREATE TABLE `pertanyaans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pertanyaans`
+-- Dumping data untuk tabel `pertanyaans`
 --
 
 INSERT INTO `pertanyaans` (`id`, `nama`, `email`, `subject`, `message`, `created_at`, `updated_at`) VALUES
@@ -288,7 +332,7 @@ INSERT INTO `pertanyaans` (`id`, `nama`, `email`, `subject`, `message`, `created
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pilihans`
+-- Struktur dari tabel `pilihans`
 --
 
 CREATE TABLE `pilihans` (
@@ -308,24 +352,23 @@ CREATE TABLE `pilihans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pilihans`
+-- Dumping data untuk tabel `pilihans`
 --
 
 INSERT INTO `pilihans` (`id`, `soal`, `gambar`, `opsiA`, `opsiB`, `opsiC`, `opsiD`, `opsiBenar`, `pembahasan`, `gambar_pembahasan`, `soal_id`, `created_at`, `updated_at`) VALUES
-(1, 'jawabannya a', 'panda_wallpaper_by_apofiss-dahj9x5.jpg', 'benet', 'sa', 'la', 'h', 'a', 'karna yang bener a', 'wallpaper20www_pixelglide_com20-369.jpg', 1, '2018-12-19 06:25:32', '2019-02-07 14:39:54'),
+(1, 'jawabannya a', '', 'benet', 'sa', 'la', 'h', 'a', 'karna yang bener aaaaaa', '', 1, '2018-12-19 06:25:32', '2019-11-27 03:59:43'),
 (2, 'ASDvb', NULL, 'a', 'b', 'c', 'd', 'a', 'asd', NULL, 2, '2018-12-29 01:52:17', '2018-12-29 01:52:17'),
 (3, 'vhvhv', NULL, '1', '2', '3', '4', 'a', 'gg', NULL, 3, '2019-01-28 03:16:11', '2019-01-28 03:16:11'),
-(4, 'adwa', 'pikachu-pokemon-cute-face-creative-cartoon-1.jpg', 'awda', 'daf', 'fs', 'l,', 'a', 'ok', 'thumb-1920-145977.jpg', 1, '2019-02-07 04:45:18', '2019-02-07 14:30:34'),
-(5, 'mkmkm', '22_pandas.jpg', 'kk', 'kk', 'kk', 'kk', 'a', 'kk', NULL, 1, '2019-02-07 06:44:45', '2019-02-07 06:44:45'),
-(6, 'dawdaw', 'Panda-Anime-Free-Pc-Wallpaper-Downloads.jpg', 'awda', 'dwada', 'wdaw', 'dwadwa', 'a', 'wdaw', '9SoZwtU.jpg', 1, '2019-02-07 06:47:28', '2019-02-07 14:29:59'),
-(7, 'stdt', 'preview_baby-panda.jpg', 'gg', 'yy', 'yy', 'yy', 'a', 'yy', 'lVexfXf.jpg', 1, '2019-02-07 14:31:51', '2019-02-07 14:31:51'),
-(8, 'jhhjhj', '3d wallpapers (6).jpg', 'ghhj', 'nn', 'll', 'iii', 'a', 'ghh', 'Colourful Abstract Wallpapers (10).JPG', 1, '2019-02-07 14:33:53', '2019-02-07 14:33:53'),
-(9, 'eded', '3d wallpapers (6).jpg', 'eded', 'deded', 'ededed', 'edede', 'a', 'deded', 'preview_baby-panda.jpg', 1, '2019-02-07 14:50:52', '2019-02-07 14:50:52');
+(4, 'adwa', '', 'awda', 'daf', 'fs', 'l,', 'a', 'ok', '', 1, '2019-02-07 04:45:18', '2019-02-07 14:30:34'),
+(5, 'mkmkm', '', 'kk', 'kk', 'kk', 'kk', 'a', 'kk', NULL, 1, '2019-02-07 06:44:45', '2019-02-07 06:44:45'),
+(6, 'dawdaw', '', 'awda', 'dwada', 'wdaw', 'dwadwa', 'a', 'wdaw', '', 1, '2019-02-07 06:47:28', '2019-02-07 14:29:59'),
+(7, 'stdt', '', 'gg', 'yy', 'yy', 'yy', 'a', 'yy', '', 1, '2019-02-07 14:31:51', '2019-02-07 14:31:51'),
+(8, 'jhhjhj', '', 'ghhj', 'nn', 'll', 'iii', 'a', 'ghh', '', 1, '2019-02-07 14:33:53', '2019-02-07 14:33:53');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profils`
+-- Struktur dari tabel `profils`
 --
 
 CREATE TABLE `profils` (
@@ -343,16 +386,16 @@ CREATE TABLE `profils` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `profils`
+-- Dumping data untuk tabel `profils`
 --
 
 INSERT INTO `profils` (`id`, `email`, `telepon`, `alamat`, `waktu_kerja`, `visi`, `tentang_kami`, `pendahuluan`, `sejarah`, `created_at`, `updated_at`) VALUES
-(1, 'terasdiskusi@gmail.com', '0818100035', 'Jln haji Mean raya no 96E, 17411, Bekasi, Jawa Barat, Indonesia', 'Senin-Jumat 09:00 - 17:00', 'Menjadi yayasan yang unggul dan amanah dalam belajar, berkarya dan berbagi.', 'Yayasan Teras Diskusi merupakan sebuah lembaga yang bergerak dibidang sosial. Lembaga sosial ini merupakan sebuah lembaga yang berawal dari sebuah diskusi kecil disebuah teras rumah yang membahas tentang mata pelajaran di sekolah.\r\n\r\nKegiatan Yayasan Teras Diskusi ini antara lain: bimbingan belajar, bakti sosial, buka puasa Bersama, pendidikan dan latihan keterampilan, belajar bisnis dan pemeriksaan kesehatan gratis. Yayasan ini bersifat non-profit, dalam artian sang owner tidak mengambil keuntungan dari kas yayasan yang ada.', 'Yayasan Teras Diskusi merupakan sebuah lembaga yang bergerak dibidang sosial. Lembaga sosial ini merupakan sebuah lembaga yang berawal dari sebuah diskusi kecil disebuah teras rumah yang membahas tentang mata pelajaran di sekolah.', 'Berawal dari diskusi kecil disebuah teras rumah. Membahas tentang mata pelajaran di sekolah. berlanjut menjadi kegiatan rutin bagi para siswa untuk berdiskusi banyak hal, mulai dari pelajaran di sekolah, pengajian, belajar bisnis, prakarsa dan ketrampilan, sampai dengan belajar terapi diri.\r\n\r\nYayasan teras diskusi didirikan pada 11 maret 2011. Kemudian secara legal disahkan oleh notaris. Pendiri sekaligus ketua dewan pembina yayasan ialah Arief Purnama, S.Pd. ketua harian saat itu ialah Ahmad Firdaus, S.Pd. Sekretaris Adee Setiawan, S.Pd yang saat ini menjabat Ketua yayasan menggantikan Ahmad Firdaus, S.Pd. adapun bendahara pertama ialah Anissa dan sekarang dijabat oleh Siti Marhamah, SE.', '2018-12-17 17:00:00', '2018-12-17 17:00:00');
+(1, 'terasdiskusi@gmail.com', '0818100035', 'Jln haji Mean raya no 96E, 17411, Bekasi, Jawa Barat, Indonesia', 'Senin-Jum\'at 09:00 - 17:00', 'Menjadi yayasan yang unggul dan amanah dalam belajar, berkarya, dan berbagi.', 'Yayasan Teras Diskusi merupakan sebuah lembaga yang bergerak dibidang sosial. Lembaga sosial ini merupakan sebuah lembaga yang berawal dari sebuah diskusi kecil disebuah teras rumah yang membahas tentang mata pelajaran di sekolah.\r\n\r\nKegiatan Yayasan Teras Diskusi ini antara lain: bimbingan belajar, bakti sosial, buka puasa Bersama, pendidikan dan latihan keterampilan, belajar bisnis dan pemeriksaan kesehatan gratis. Yayasan ini bersifat non-profit, dalam artian sang owner tidak mengambil keuntungan dari kas yayasan yang ada.\r\n.', 'Yayasan Teras Diskusi merupakan sebuah lembaga yang bergerak dibidang sosial. Lembaga sosial ini merupakan sebuah lembaga yang berawal dari sebuah diskusi kecil disebuah teras rumah yang membahas tentang mata pelajaran di sekolah.', 'Berawal dari diskusi kecil disebuah teras rumah. Membahas tentang mata pelajaran di sekolah. berlanjut menjadi kegiatan rutin bagi para siswa untuk berdiskusi banyak hal, mulai dari pelajaran di sekolah, pengajian, belajar bisnis, prakarsa dan ketrampilan, sampai dengan belajar terapi diri.\r\n\r\nYayasan teras diskusi didirikan pada 11 maret 2011. Kemudian secara legal disahkan oleh notaris. Pendiri sekaligus ketua dewan pembina yayasan ialah Arief Purnama, S.Pd. ketua harian saat itu ialah Ahmad Firdaus, S.Pd. Sekretaris Adee Setiawan, S.Pd yang saat ini menjabat Ketua yayasan menggantikan Ahmad Firdaus, S.Pd. adapun bendahara pertama ialah Anissa dan sekarang dijabat oleh Siti Marhamah, SE.', '2018-12-17 17:00:00', '2019-11-17 07:58:55');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `soals`
+-- Struktur dari tabel `soals`
 --
 
 CREATE TABLE `soals` (
@@ -363,18 +406,30 @@ CREATE TABLE `soals` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `soals`
+-- Dumping data untuk tabel `soals`
 --
 
 INSERT INTO `soals` (`id`, `nm_soal`, `created_at`, `updated_at`) VALUES
-(1, 'coba tes soal 1', '2018-12-18 16:07:03', '2018-12-18 16:10:00'),
+(1, 'coba tes soal 111111', '2018-12-18 16:07:03', '2019-11-26 04:51:07'),
 (2, 'aaaa', '2018-12-29 01:52:01', '2018-12-29 01:52:01'),
 (3, 'mat', '2019-01-28 03:15:41', '2019-01-28 03:15:41');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `soal_user`
+-- Struktur dari tabel `soal_subject`
+--
+
+CREATE TABLE `soal_subject` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `soal_id` int(10) UNSIGNED NOT NULL,
+  `subject_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `soal_user`
 --
 
 CREATE TABLE `soal_user` (
@@ -387,18 +442,62 @@ CREATE TABLE `soal_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `soal_user`
+-- Dumping data untuk tabel `soal_user`
 --
 
 INSERT INTO `soal_user` (`id`, `user_id`, `soal_id`, `nilai`, `created_at`, `updated_at`) VALUES
 (1, 2, 1, 100, '2018-12-19 06:26:15', '2018-12-19 06:26:15'),
 (2, 2, 2, 100, '2018-12-29 02:10:18', '2018-12-29 02:10:18'),
-(3, 4, 3, 100, '2019-02-07 05:16:28', '2019-02-07 05:16:28');
+(3, 7, 1, 100, '2019-11-27 09:27:27', '2019-11-27 09:27:27'),
+(4, 7, 1, 100, '2019-11-27 09:43:33', '2019-11-27 09:43:33'),
+(5, 7, 1, 100, '2019-11-27 09:44:25', '2019-11-27 09:44:25'),
+(6, 7, 1, 100, '2019-11-27 09:44:56', '2019-11-27 09:44:56'),
+(7, 7, 1, 100, '2019-11-27 09:47:55', '2019-11-27 09:47:55'),
+(8, 7, 1, 100, '2019-11-27 09:48:12', '2019-11-27 09:48:12'),
+(9, 7, 1, 100, '2019-11-27 09:48:30', '2019-11-27 09:48:30'),
+(10, 7, 1, 100, '2019-11-27 09:49:23', '2019-11-27 09:49:23'),
+(11, 7, 1, 100, '2019-11-27 09:49:43', '2019-11-27 09:49:43'),
+(12, 7, 1, 100, '2019-11-27 09:49:57', '2019-11-27 09:49:57'),
+(13, 7, 1, 100, '2019-11-27 09:51:14', '2019-11-27 09:51:14'),
+(14, 7, 1, 100, '2019-11-27 09:51:49', '2019-11-27 09:51:49'),
+(15, 7, 1, 100, '2019-11-27 09:52:53', '2019-11-27 09:52:53'),
+(16, 7, 1, 100, '2019-11-27 09:53:05', '2019-11-27 09:53:05'),
+(17, 7, 1, 100, '2019-11-27 09:53:21', '2019-11-27 09:53:21'),
+(18, 7, 1, 100, '2019-11-27 09:53:33', '2019-11-27 09:53:33'),
+(19, 7, 1, 100, '2019-11-27 09:54:00', '2019-11-27 09:54:00'),
+(20, 7, 1, 100, '2019-11-27 09:54:16', '2019-11-27 09:54:16'),
+(21, 7, 1, 100, '2019-11-27 09:54:34', '2019-11-27 09:54:34'),
+(22, 7, 1, 100, '2019-11-27 09:54:53', '2019-11-27 09:54:53'),
+(23, 7, 1, 100, '2019-11-27 09:55:58', '2019-11-27 09:55:58'),
+(24, 7, 1, 100, '2019-11-29 10:15:36', '2019-11-29 10:15:36');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `testimonis`
+-- Struktur dari tabel `subjects`
+--
+
+CREATE TABLE `subjects` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `subjects`
+--
+
+INSERT INTO `subjects` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Matematika', '2019-11-28 03:36:55', '2019-11-28 03:41:45'),
+(2, 'IPA', '2019-11-28 03:41:35', '2019-11-28 03:41:35'),
+(3, 'Bahasa Inggris', '2019-11-28 03:41:56', '2019-11-28 03:41:56'),
+(4, 'Bahasa Indonesia', '2019-11-28 03:42:06', '2019-11-28 03:42:06');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `testimonis`
 --
 
 CREATE TABLE `testimonis` (
@@ -412,17 +511,17 @@ CREATE TABLE `testimonis` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `testimonis`
+-- Dumping data untuk tabel `testimonis`
 --
 
 INSERT INTO `testimonis` (`id`, `nama`, `status`, `pesan`, `foto`, `created_at`, `updated_at`) VALUES
 (1, 'M FATHAN QORIIBA', 'Siswa SMAN5 Bekasi', 'Belajar disini mantap', 'LOGO.png', '2018-12-18 05:02:04', '2018-12-18 05:03:35'),
-(2, 'Siapa ini', 'Manusia', 'Teras Diskusi memang oke', 'course-6.jpg', '2018-12-18 05:03:01', '2018-12-18 05:03:01');
+(2, 'Siapa ini', 'Manusia', 'Teras Diskusi memang oke', 'a.jpg', '2018-12-18 05:03:01', '2018-12-18 05:03:01');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -438,33 +537,34 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `kelas_id`, `role`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'terasdiskusi@gmail.com', NULL, 2, '$2y$10$bZltwhb8b2KzZJ1Y7xNQIuy1FNNWCPAIjtgp90uLwx4vabxZovrbS', 'De9wGTjUSgj4N6vjKkLnlarftFTfBupLuqGEwYyjYghu80wOdJeG3hcgKQOI', '2018-12-18 04:53:30', '2018-12-18 04:53:30'),
+(1, 'Admin', 'terasdiskusi@gmail.com', NULL, 2, '$2y$10$bZltwhb8b2KzZJ1Y7xNQIuy1FNNWCPAIjtgp90uLwx4vabxZovrbS', 'WkBo9dyeSsJYQ6gkzdJ4zH8pA7qxgfXef7aXnGvpOR0PyRsDxUjUwnKvs64C', '2018-12-18 04:53:30', '2018-12-18 04:53:30'),
 (2, 'M Fathan Qoriiba', 'terserahfathan@gmail.com', 3, 1, '$2y$10$XJEWMGH.lrD4lsrn.KuQEe2puDhl77KMz6SUSZ.LvTimwa0HZ0hhm', 'TqaiAMple48nXwr2QZvtRHsJJ61r6CPOXoBw4GCBrTKularZCZckm7PbGr1j', '2018-12-18 04:57:33', '2018-12-18 04:57:33'),
-(3, 'Pengajar 1', 'rfchampion28@gmail.com', NULL, 3, '$2y$10$JjeCOhNF0jae2/odZ9lp/OJoR1C77Up2Ojx3t3OAeZyD//XU2KWlu', '5PFJ0JqBiOV7p9LvLz8pIaxZVUk0HkqPlHM6c7phkvHgY088Rw332vWPA0cr', '2018-12-18 05:20:56', '2018-12-18 05:20:56'),
-(4, 'TrisnaHastuti', 'Trisnahastutipuspita@gmail.com', 1, 1, '$2y$10$02fkQcZM0XFqmnoxlCYlyePY2ja9QB9r8wtKSZaBtpEk6v8ypQDpS', 'bQUpjU6LX4bV5vFwhIwkvE5MUQfBcyyhclfpPnrllIybkltUfoJKXO8VjSQF', '2019-01-16 19:51:17', '2019-01-16 19:51:17');
+(5, 'Trisna Puspita', 'trisnapspt@gmail.com', NULL, 3, '$2y$10$6TT.Id.Veaaowkies23TeeoZkyvkoIeLHkz/sZnPpDMR4Jpaqozmy', 'zdXyIJf98WBJ5BjAKXRCIUJM9i6LH8f3Wj7qQ7jgJ0HDTMAOzNHjGyfxWHMY', '2019-11-07 07:32:53', '2019-11-07 07:32:53'),
+(7, 'Dyah Ayu F', 'dyaah@gmail.com', 1, 1, '$2y$10$fk/bKenxRAknhgqYLfZ8cu0RHbORd2br2tuCU/9Fvoa4341kH7asS', 'AsRzJwm4JawDu0013G4gDhbNM8Lm9d03L9tXH1BobVoxFCj59XwxNpEEHhz8', '2019-11-16 13:22:21', '2019-11-16 13:22:21'),
+(8, 'Dina', 'dina@gmail.com', NULL, 4, '$2y$10$DQ3hkSf.v7IxBAgCTdfxU.28uActSCmdhOVa7vBEYsqaa/YZgS45O', 'ZYn2J2OsZ4I7QxGXcEmh3OJrOniTjCjVO0zxxvEshueBakHBjSQBaAuSnJSD', '2019-11-24 01:18:02', '2019-11-24 01:18:02');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `beritas`
+-- Indeks untuk tabel `beritas`
 --
 ALTER TABLE `beritas`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kelass`
+-- Indeks untuk tabel `kelass`
 --
 ALTER TABLE `kelass`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kelas_materi`
+-- Indeks untuk tabel `kelas_materi`
 --
 ALTER TABLE `kelas_materi`
   ADD PRIMARY KEY (`id`),
@@ -472,7 +572,7 @@ ALTER TABLE `kelas_materi`
   ADD KEY `kelas_materi_materi_id_foreign` (`materi_id`);
 
 --
--- Indexes for table `kelas_soal`
+-- Indeks untuk tabel `kelas_soal`
 --
 ALTER TABLE `kelas_soal`
   ADD PRIMARY KEY (`id`),
@@ -480,68 +580,84 @@ ALTER TABLE `kelas_soal`
   ADD KEY `kelas_soal_soal_id_foreign` (`soal_id`);
 
 --
--- Indexes for table `materis`
+-- Indeks untuk tabel `materis`
 --
 ALTER TABLE `materis`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `messages`
+-- Indeks untuk tabel `materi_subject`
+--
+ALTER TABLE `materi_subject`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `materi_subject_materi_id_foreign` (`materi_id`),
+  ADD KEY `materi_subject_subject_id_foreign` (`subject_id`);
+
+--
+-- Indeks untuk tabel `messages`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `misis`
+-- Indeks untuk tabel `misis`
 --
 ALTER TABLE `misis`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_resets`
+-- Indeks untuk tabel `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `pendaftarans`
+-- Indeks untuk tabel `pendaftarans`
 --
 ALTER TABLE `pendaftarans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pertanyaans`
+-- Indeks untuk tabel `pertanyaans`
 --
 ALTER TABLE `pertanyaans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pilihans`
+-- Indeks untuk tabel `pilihans`
 --
 ALTER TABLE `pilihans`
   ADD PRIMARY KEY (`id`),
   ADD KEY `pilihans_soal_id_foreign` (`soal_id`);
 
 --
--- Indexes for table `profils`
+-- Indeks untuk tabel `profils`
 --
 ALTER TABLE `profils`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `soals`
+-- Indeks untuk tabel `soals`
 --
 ALTER TABLE `soals`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `soal_user`
+-- Indeks untuk tabel `soal_subject`
+--
+ALTER TABLE `soal_subject`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `soal_subject_soal_id_foreign` (`soal_id`),
+  ADD KEY `soal_subject_subject_id_foreign` (`subject_id`);
+
+--
+-- Indeks untuk tabel `soal_user`
 --
 ALTER TABLE `soal_user`
   ADD PRIMARY KEY (`id`),
@@ -549,13 +665,20 @@ ALTER TABLE `soal_user`
   ADD KEY `soal_user_soal_id_foreign` (`soal_id`);
 
 --
--- Indexes for table `testimonis`
+-- Indeks untuk tabel `subjects`
+--
+ALTER TABLE `subjects`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `subjects_name_unique` (`name`);
+
+--
+-- Indeks untuk tabel `testimonis`
 --
 ALTER TABLE `testimonis`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -563,138 +686,170 @@ ALTER TABLE `users`
   ADD KEY `users_kelas_id_foreign` (`kelas_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `beritas`
+-- AUTO_INCREMENT untuk tabel `beritas`
 --
 ALTER TABLE `beritas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `kelass`
---
-ALTER TABLE `kelass`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `kelas_materi`
+-- AUTO_INCREMENT untuk tabel `kelass`
 --
-ALTER TABLE `kelas_materi`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `kelass`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `kelas_soal`
+-- AUTO_INCREMENT untuk tabel `kelas_materi`
+--
+ALTER TABLE `kelas_materi`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT untuk tabel `kelas_soal`
 --
 ALTER TABLE `kelas_soal`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `materis`
+-- AUTO_INCREMENT untuk tabel `materis`
 --
 ALTER TABLE `materis`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `messages`
+-- AUTO_INCREMENT untuk tabel `materi_subject`
+--
+ALTER TABLE `materi_subject`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT untuk tabel `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `misis`
+-- AUTO_INCREMENT untuk tabel `misis`
 --
 ALTER TABLE `misis`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `pendaftarans`
+-- AUTO_INCREMENT untuk tabel `pendaftarans`
 --
 ALTER TABLE `pendaftarans`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `pertanyaans`
+-- AUTO_INCREMENT untuk tabel `pertanyaans`
 --
 ALTER TABLE `pertanyaans`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `pilihans`
+-- AUTO_INCREMENT untuk tabel `pilihans`
 --
 ALTER TABLE `pilihans`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `profils`
+-- AUTO_INCREMENT untuk tabel `profils`
 --
 ALTER TABLE `profils`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `soals`
+-- AUTO_INCREMENT untuk tabel `soals`
 --
 ALTER TABLE `soals`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `soal_user`
+-- AUTO_INCREMENT untuk tabel `soal_subject`
 --
-ALTER TABLE `soal_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `soal_subject`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `testimonis`
+-- AUTO_INCREMENT untuk tabel `soal_user`
+--
+ALTER TABLE `soal_user`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT untuk tabel `subjects`
+--
+ALTER TABLE `subjects`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `testimonis`
 --
 ALTER TABLE `testimonis`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `kelas_materi`
+-- Ketidakleluasaan untuk tabel `kelas_materi`
 --
 ALTER TABLE `kelas_materi`
   ADD CONSTRAINT `kelas_materi_kelas_id_foreign` FOREIGN KEY (`kelas_id`) REFERENCES `kelass` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `kelas_materi_materi_id_foreign` FOREIGN KEY (`materi_id`) REFERENCES `materis` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `kelas_soal`
+-- Ketidakleluasaan untuk tabel `kelas_soal`
 --
 ALTER TABLE `kelas_soal`
   ADD CONSTRAINT `kelas_soal_kelas_id_foreign` FOREIGN KEY (`kelas_id`) REFERENCES `kelass` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `kelas_soal_soal_id_foreign` FOREIGN KEY (`soal_id`) REFERENCES `soals` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `pilihans`
+-- Ketidakleluasaan untuk tabel `materi_subject`
+--
+ALTER TABLE `materi_subject`
+  ADD CONSTRAINT `materi_subject_materi_id_foreign` FOREIGN KEY (`materi_id`) REFERENCES `materis` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `materi_subject_subject_id_foreign` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `pilihans`
 --
 ALTER TABLE `pilihans`
   ADD CONSTRAINT `pilihans_soal_id_foreign` FOREIGN KEY (`soal_id`) REFERENCES `soals` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `soal_user`
+-- Ketidakleluasaan untuk tabel `soal_subject`
+--
+ALTER TABLE `soal_subject`
+  ADD CONSTRAINT `soal_subject_soal_id_foreign` FOREIGN KEY (`soal_id`) REFERENCES `soals` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `soal_subject_subject_id_foreign` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `soal_user`
 --
 ALTER TABLE `soal_user`
   ADD CONSTRAINT `soal_user_soal_id_foreign` FOREIGN KEY (`soal_id`) REFERENCES `soals` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `soal_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `users`
+-- Ketidakleluasaan untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_kelas_id_foreign` FOREIGN KEY (`kelas_id`) REFERENCES `kelass` (`id`) ON DELETE SET NULL;
