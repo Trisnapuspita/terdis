@@ -9,10 +9,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Teras Diskusi</title>
-    
+
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="/img/logoteras.ico" type="image/x-icon" />
-		<link rel="apple-touch-icon" href="/img/logoteras.jpg">
+		<link rel="apple-touch-icon" href="/img/logo1.jpg">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

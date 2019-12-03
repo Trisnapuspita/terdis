@@ -101,7 +101,7 @@
 										<nav class="header-nav-top mr-0">
 											<ul class="nav">
 												@if (Auth::guest())
-												<li><a href="{{ url('/daftar-bimbel') }}"><span class="ws-nowrap"><i class="fas fa-user-plus"></i></i> Daftar</span></a></li>
+												{{-- <li><a href="{{ url('/daftar-bimbel') }}"><span class="ws-nowrap"><i class="fas fa-user-plus"></i></i> Daftar</span></a></li> --}}
 												<li><a href="{{ url('/login') }}"><span class="ws-nowrap"><i class="fas fa-user"></i> Masuk</span></a></li>
 												@else
 												<li><a href="{{ url('/login') }}"><span class="ws-nowrap"><i class="fas fa-user"></i> {{ Auth::user()->name }}</span></a></li>
@@ -131,25 +131,35 @@
 											<nav class="collapse">
 												<ul class="nav" id="mainNav">
 													<li>
-														<a class="nav-link active" href="{{ url('/') }}">
+														<a class="nav-link @yield('navbar_beranda')" href="{{ url('/') }}">
 															Beranda
 														</a>
 													</li>
 													<li>
-														<a class="nav-link" href="{{ url('/tentangkami') }}">
+														<a class="nav-link @yield('navbar_tentang')" href="{{ url('/tentangkami') }}">
 															Tentang Kami
 														</a>
 													</li>
 													<li>
-														<a class="nav-link" href="{{ url('/kegiatan') }}">
+														<a class="nav-link @yield('navbar_berita')" href="{{ url('/kegiatan') }}">
 															Berita
 														</a>
 													</li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle @yield('navbar_guru')">
+                                                            Guru Digital
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="/info">Info</a></li>
+                                                            <li><a class="dropdown-item" href="/program">Program</a></li>
+                                                            <li><a class="dropdown-item" href="/event">Berita</a></li>
+                                                        </ul>
+                                                    </li>
 													<li>
-														<a class="nav-link" href="{{ url('/kontak') }}">
-															Kontak
-														</a>
-													</li>
+                                                        <a class="nav-link @yield('navbar_kontak')" href="{{ url('/kontak') }}">
+                                                            Kontak
+                                                        </a>
+                                                    </li>
 												</ul>
 											</nav>
 										</div>
@@ -192,10 +202,15 @@
 
 								<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
 									{{ csrf_field()}}
-                                    <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                                    <div class="wrap-input100 validate-input m-b-26{{ $errors->has('name') ? ' has-error' : '' }}" data-validate="Username is required">
                                         <span class="label-input100">Username</span>
                                         <input class="input100" id="name" type="name" name="name" value="{{ old('name') }}" required autofocustype="text" placeholder="Masukan username">
                                         <span class="focus-input100"></span>
+                                        @if ($errors->has('name'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('name') }}</strong>
+                                        </span>
+                                    @endif
                                     </div>
 
                                     <div class="wrap-input100 validate-input m-b-18{{ $errors->has('password') ? ' has-error' : '' }}" data-validate = "Password is required">
@@ -233,79 +248,6 @@
                             </div>
                         </div>
                     </div>
-
-                {{-- <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Login</div>
-
-                                <div class="panel-body">
-                                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                                        {{ csrf_field() }}
-
-                                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                                            <div class="col-md-6">
-                                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-
-                                                @if ($errors->has('email'))
-                                                    <span class="help-block">
-                                                        <strong>{{ $errors->first('email') }}</strong>
-                                                    </span>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                                            <div class="col-md-6">
-                                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                                @if ($errors->has('password'))
-                                                    <span class="help-block">
-                                                        <strong>{{ $errors->first('password') }}</strong>
-                                                    </span>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group{{ $errors->has('captcha') ? ' has-error' : '' }}">
-                                            <label for="captcha" class="col-md-4 control-label">Captcha</label>
-
-                                            <div class="col-md-3">
-                                                <div class ="captcha">
-                                                    <span>{!! captcha_img() !!}</span>
-                                                </div>
-                                                <input id="captcha" type="text" class="form-control" name="captcha" required>
-
-                                                @if ($errors->has('captcha'))
-                                                    <span class="help-block">
-                                                        <strong>{{ $errors->first('captcha') }}</strong>
-                                                    </span>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-md-8 col-md-offset-4">
-                                                <button type="submit" class="btn btn-primary">
-                                                    Login
-                                                </button>
-
-                                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                    Forgot Your Password?
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
 
 			<footer id="footer" class="background-color-quaternary border-top-0 mt-0">
 				<div class="container">

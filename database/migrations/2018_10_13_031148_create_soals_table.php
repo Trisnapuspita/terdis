@@ -19,7 +19,6 @@ class CreateSoalsTable extends Migration
             $table->integer('kelas_id')->unsigned();
             $table->foreign('kelas_id')->references('id')->on('kelass')->onDelete('cascade');
             $table->timestamps();
-
         });
     }
 

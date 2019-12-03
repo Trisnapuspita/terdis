@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role', 'kelas_id'
+        'name', 'email', 'password', 'role'
     ];
 
     /**
@@ -37,6 +37,12 @@ class User extends Authenticatable
     public function isPengajar()
     {
         if ($this->role == 3) return true;
+        return false;
+    }
+
+    public function isPendaftar()
+    {
+        if ($this->role == 4) return true;
         return false;
     }
 

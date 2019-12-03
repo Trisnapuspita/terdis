@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\http\Requests;
+use App\Subject;
 use App\Soal;
 use App\Kelas;
 use Auth;
@@ -59,7 +60,8 @@ class SoalController extends Controller
     public function create()
     {
         $kelas = Kelas::all();
-        return view('soal/createjudul', ['kelas' => $kelas]);
+        $mapel = Subject::all();
+        return view('soal/createjudul', ['kelas' => $kelas, 'mapel' => $mapel]);
     }
 
     public function store(Request $request)
@@ -131,7 +133,7 @@ class SoalController extends Controller
         ]);
         $filename = null;
         $filename1 = null;
-        
+
         if($request->gambar != null) {
             $filename = $request->gambar->getClientOriginalName();
             $request->gambar->storeAs('public/upload', $filename);

@@ -1,54 +1,89 @@
-@extends('layouts.admin')
+@extends('layouts.base')
+
+@section('title')
+Teras Diskusi | Buat Misi Baru
+@endsection
+
+@section('open5')
+active open
+@endsection
+
 
 @section('content')
-<div class="container">
+
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                <a href="/home">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <span>Misi</span>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <span>Buat Misi Baru</span>
+            </li>
+        </ul>
+    </div>
+
+    @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+    @endif
+    @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+    @endif
+    <!-- END PAGE HEADER-->
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Tambah Misi:</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    @if(count($errors)>0)
-                        <p class="text-danger">Eror create because:</p>
-                        <ul class="text-danger">
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-
-                    <form action="/misi" class="form-horizontal" method="POST">
-                        <div class="form-group{{ $errors->has('poin') ? ' has-error' : '' }}">
-                            <label for="poin" class="control-label col-sm-2">Misi :</label>
-
-                            <div class="col-sm-8">
-                            <textarea name="poin" class="form-control" cols="70" rows="4" required autofocus></textarea>
-
-                                @if ($errors->has('poin'))
+        <div class="col-md-12">
+            <!-- BEGIN SAMPLE FORM PORTLET-->
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption font-green-haze">
+                        <i class="icon-settings font-green-haze"></i>
+                        <span class="caption-subject bold uppercase">Membuat Misi Baru</span>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                        <form action="/misi" class="form-horizontal" method="POST">
+                        <div class="form-body">
+                            <div class="form-group form-md-line-input">
+                                <label class="col-md-2 control-label" for="form_control_1">Misi :</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" id="poin" name="poin" value="{{ old('poin') }}">
+                                    <div class="form-control-focus"> </div>
+                                    @if ($errors->has('poin'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('poin') }}</strong>
                                     </span>
-                                @endif
+                                @endif <br>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="form-group">        
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <input type="submit" class="btn btn-primary" name="submit" value="Tambah" onclick="return confirm('Apakah Anda yakin untuk mengedit?')">
-                                {{ csrf_field() }}
-                                <a class="btn btn-info" href="/misi">Batal</a>
+                        <div class="form-actions">
+                            <div class="row">
+                                    {{ csrf_field() }}
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" class="btn btn-primary" name="submit" value="Tambah" onclick="return confirm('Apakah Anda yakin untuk mengedit?')">
+                                    {{ csrf_field() }}
+                                    <button type="button" class="btn default">Cancel</button>
+                                </div>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+            <!-- END SAMPLE FORM PORTLET-->
         </div>
     </div>
+
 </div>
+<!-- END CONTENT BODY -->
 @endsection

@@ -12,4 +12,9 @@ class Materi extends Model
     {
         return $this->belongsToMany('App\Kelas');
     }
+
+    public function subjects()
+    {
+        return $this->BelongstoMany('App\Subject', 'materi_subject');
+    }
 }

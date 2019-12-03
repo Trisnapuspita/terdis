@@ -1,77 +1,105 @@
-@extends('layouts.admin')
+@extends('layouts.base')
+
+@section('title')
+Teras Diskusi | Edit Profil
+@endsection
+
+
+@section('open5')
+active open
+@endsection
 
 @section('content')
-<div class="container">
+
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                <a href="/home">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <span>Informasi</span>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <span>Edit Profil</span>
+            </li>
+        </ul>
+    </div>
+
+    @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+    @endif
+
+    @if(count($errors)>0)
+        <p class="text-danger">Eror karena:</p>
+        <ul class="text-danger">
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
+
+    <!-- END PAGE HEADER-->
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Edit Profil</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    @if(count($errors)>0)
-                        <p class="text-danger">Error edit karena:</p>
-                        <ul class="text-danger">
-                            @foreach($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-
-                    <form action="/profil2" class="form-horizontal" method="POST">
-                        <div class="form-group{{ $errors->has('tentang_kami') ? ' has-error' : '' }}">
-                            <label for="tentang_kami" class="control-label col-sm-2">Tentang kami (Beranda) :</label>
-
-                            <div class="col-sm-10">
-                                <textarea name="tentang_kami" class="form-control" cols="100" rows="4" required autofocus>{{ $profil->tentang_kami }}</textarea>
-
-                                @if ($errors->has('tentang_kami'))
+        <div class="col-md-12">
+            <div class="portlet light form-fit ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-puzzle font-red"></i>
+                        <span class="caption-subject font-red bold uppercase">Edit Profil</span>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form action="/profil2" method="POST" enctype="multipart/form-data" class="form-horizontal form-bordered">
+                        <div class="form-body">
+                            <div class="form-group{{ $errors->has('tentang_kami') ? ' has-error' : '' }}">
+                                <label class="control-label col-md-2">Tentang Kami (Beranda) </label>
+                                <div class="col-md-10">
+                                    <textarea name="tentang_kami"data-provide="markdown" rows="10">{{ $profil->tentang_kami }}</textarea>
+                                    @if ($errors->has('tentang_kami'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('tentang_kami') }}</strong>
                                     </span>
-                                @endif
+                                @endif <br>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('pendahuluan') ? ' has-error' : '' }}">
-                            <label for="pendahuluan" class="control-label col-sm-2">Pendahuluan:</label>
-
-                            <div class="col-sm-10">
-                                <textarea name="pendahuluan" class="form-control" cols="100" rows="4" required autofocus>{{ $profil->pendahuluan }}</textarea>
-
-                                @if ($errors->has('pendahuluan'))
+                            <div class="form-group{{ $errors->has('pendahuluan') ? ' has-error' : '' }}">
+                                <label class="control-label col-md-2">Pendahuluan </label>
+                                <div class="col-md-10">
+                                    <textarea name="pendahuluan" data-provide="markdown" rows="10">{{ $profil->pendahuluan }}</textarea>
+                                    @if ($errors->has('pendahuluan'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('pendahuluan') }}</strong>
                                     </span>
                                 @endif
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('sejarah') ? ' has-error' : '' }}">
-                            <label for="sejarah" class="control-label col-sm-2">Sejarah:</label>
-
-                            <div class="col-sm-10">
-                                <textarea name="sejarah" class="form-control" cols="100" rows="4" required autofocus>{{ $profil->sejarah }}</textarea>
-
-                                @if ($errors->has('sejarah'))
+                            <div class="form-group{{ $errors->has('sejarah') ? ' has-error' : '' }}">
+                                <label class="control-label col-md-2">Sejarah </label>
+                                <div class="col-md-10">
+                                    <textarea name="sejarah"  data-provide="markdown" rows="10">{{ $profil->sejarah }}</textarea>
+                                    @if ($errors->has('sejarah'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('sejarah') }}</strong>
                                     </span>
                                 @endif
+                                </div>
                             </div>
                         </div>
-
-                        <div class="form-group">        
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <input type="submit" class="btn btn-primary" name="submit" value="Edit" onclick="return confirm('Apakah Anda yakin untuk mengedit?')">
-                                {{ csrf_field() }}
-                                <input type="hidden" name="_method" value="PUT">
-                                <a class="btn btn-info" href="/admin/informasi">Back</a>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" class="btn btn-primary" name="submit" value="Edit" onclick="return confirm('Apakah Anda yakin untuk mengedit?')">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="_method" value="PUT">
+                                    &nbsp;<button type="button" class="btn default">Batal</button>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -79,5 +107,18 @@
             </div>
         </div>
     </div>
+
 </div>
+<!-- END CONTENT BODY -->
+@endsection
+
+@section('style')
+<link href="{{asset('/assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('/assets/global/plugins/bootstrap-summernote/summernote.css')}}" rel="stylesheet" type="text/css" />
+@endsection
+
+@section('script')
+<script src="{{asset('/assets/global/plugins/bootstrap-markdown/lib/markdown.js')}}" type="text/javascript"></script>
+<script src="{{asset('/assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js')}}" type="text/javascript"></script>
+<script src="{{asset('/assets/global/plugins/bootstrap-summernote/summernote.min.js')}}" type="text/javascript"></script>
 @endsection

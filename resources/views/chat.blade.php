@@ -9,7 +9,7 @@
                 <div class="panel-body" id="app">
                     <chat-app :user="{{ auth()->user() }}"></chat-app>
                 </div>
-                
+
             </div>
         </div>
     </div>

@@ -10,4 +10,14 @@ class PengajarController extends Controller
     {
         return view('pengajar/home');
     }
+
+    public function nilai()
+    {
+        return view('pengajar/nilai/nilai');
+    }
+
+    public function shownilai()
+    {
+        return view('pengajar/nilai/shownilai');
+    }
 }

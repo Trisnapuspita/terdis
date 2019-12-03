@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -42,8 +42,7 @@ class LoginController extends Controller
     {
         $this->validate($request, [
             $this->username() => 'required',
-            'password' => 'required',
-            // 'captcha'  => 'required|captcha',
+            'password' => 'required'
         ]);
     }
 }

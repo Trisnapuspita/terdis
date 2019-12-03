@@ -18,6 +18,12 @@ class UserController extends Controller
         return view('siswa/nilai', ['user' => $user]);
     }
 
+    public function shownilai_siswa($id)
+    {
+        $user = User::findOrFail($id);
+        return view('siswa/nilai', ['user' => $user]);
+    }
+
 
 
     public function nilai(Request $request, $idsoal, $iduser)

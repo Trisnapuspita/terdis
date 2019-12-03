@@ -1,53 +1,116 @@
-@extends('layouts.app')
+@extends('layouts.base')
+
+@section('title')
+Teras Diskusi | Materi
+@endsection
+
+@section('open14')
+active open
+@endsection
 
 @section('content')
-<div class="container">
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                <a href="/home">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="/home">Soal</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <span>Hasil</span>
+            </li>
+        </ul>
+    </div>
+
+    @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+    @endif
+    @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+    @endif
+    <!-- END PAGE HEADER-->
+    <div class="row" style="text-align:center">
+        <div class="col-md-12">
+            <label class="label label-success" style="font-size:20pt; font-weight:bold">Nilai :  {{$nilai}}</label>
+        </div> <br> <br>
+    </div>
+
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Hasil</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <p style="text-align: center; font-size:xx-large;">Nilai : {{$nilai}}</p>
-
-                    <table class="table table-bordered">
+        <div class="col-md-12">
+            <!-- BEGIN EXAMPLE TABLE PORTLET-->
+            <div class="portlet box green">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-info-circle"></i></div>
+                    <div class="tools"> </div>
+                </div>
+                <div class="portlet-body">
+                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>Soal dan Jawaban benar</th>
-                                <th>Jawaban Anda</th>
+                                <th>No</th>
+                                <th class="min-phone-l">Soal</th>
+                                <th class="min-tablet">Pembahasan</th>
+                                <th class="min-tablet">Jawaban Benar</th>
+                                <th class="min-tablet">Jawaban Anda</th>
                             </tr>
                         </thead>
-                    @foreach($pilihans as $pilihan)
-                        <tr>
-                            <th width="600px"><form>
-                                {{ $loop->iteration }}. {{ $pilihan->soal }} <br>
-                                <img src="/storage/upload/{{$pilihan->gambar}}" style="max-width: 150px; height: auto; " class="image-fluid" alt="">
-                                <ul>
-                                    a. {{ $pilihan->opsiA }} <br>
-                                    b. {{ $pilihan->opsiB }} <br>
-                                    c. {{ $pilihan->opsiC }} <br>
-                                    d. {{ $pilihan->opsiD }} <br>
-                                </ul>
-                            </form>
-                                <p style="white-space: pre-line">Pembahasan:<br>{{ $pilihan->pembahasan }}</p>
-                                <p> <img src="/storage/upload/{{$pilihan->gambar_pembahasan}}" style="max-width: 150px; height: auto; " class="image-fluid" alt=""></p>
-                                <p>Jawaban: {{ $pilihan->opsiBenar }}</p>
-                            </th>
-                            <th>
-                                {{ $jawaban[$loop->index] }}
-                            </th>
-                        </tr>
-                    @endforeach
+                        <tbody>
+                            @php $i=1 @endphp
+                            @foreach($pilihans as $pilihan)
+                            <tr>
+                                <td>{{$i++}}</td>
+                                <td>{{$pilihan->soal}}<br>
+                                    <img src="/storage/upload/{{$pilihan->gambar}}" style="max-width: 150px; height: auto; " class="image-fluid" alt="">
+                                    <p>
+                                        a. {{ $pilihan->opsiA }} <br>
+                                        b. {{ $pilihan->opsiB }} <br>
+                                        c. {{ $pilihan->opsiC }} <br>
+                                        d. {{ $pilihan->opsiD }} <br>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p>{{ $pilihan->pembahasan }}</p>
+                                    <p> <img src="/storage/upload/{{$pilihan->gambar_pembahasan}}" style="max-width: 150px; height: auto; " class="image-fluid" alt="">
+                                    </p>
+                                </td>
+                                <td><p>{{ $pilihan->opsiBenar }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ $jawaban[$loop->index] }}</p>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
+            <!-- END EXAMPLE TABLE PORTLET-->
         </div>
     </div>
 </div>
+<!-- END CONTENT BODY -->
 @endsection
+
+@section('style')
+<link href="../../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+<link href="../../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+@endsection
+
+@section('script')
+<script src="../../assets/global/scripts/datatable.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
+<script src="../../assets/pages/scripts/table-datatables-responsive.min.js" type="text/javascript"></script>
+@endsection
+

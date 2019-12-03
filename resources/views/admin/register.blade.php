@@ -1,117 +1,131 @@
-@extends('layouts.admin')
+@extends('layouts.base')
+
+@section('title')
+Teras Diskusi | Pendaftaran Baru
+@endsection
+
+@section('open2')
+active open
+@endsection
 
 @section('content')
-<div class="container">
+
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="icon-home"></i>
+                <a href="/home">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <span>Data User</span>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <span>Buat User Baru</span>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE HEADER-->
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="register2">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
-
+        <div class="col-md-12">
+            <!-- BEGIN VALIDATION STATES-->
+            <div class="portlet light portlet-fit portlet-form ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class=" icon-layers font-red"></i>
+                        <span class="caption-subject font-red sbold uppercase">Mendaftar User Baru</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <!-- BEGIN FORM-->
+                    <form method="POST" action="register2">
+                            {{ csrf_field() }}
+                        <div class="form-body">
+                            <div class="form-group form-md-line-input form-md-floating-label{{ $errors->has('name') ? ' has-error' : '' }}">
+                                <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required autofocus>
+                                <label for="form_control_1">Nama</label>
                                 @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
                                 @endif
                             </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
-                            <label for="role" class="col-md-4 control-label">Status</label>
-
-                            <div class="col-md-6">
-                                <select name="role" class="form-control" id="role" required autofocus>
-                                    <option value="" disabled selected hidden>Pilih status</option>
-                                    <option value="1">Siswa</option>
-                                    <option value="2">Admin</option>
-                                    <option value="3">Pengajar</option>
-                                </select>
-
-                                @if ($errors->has('role'))
+                        <div class="form-group form-md-line-input form-md-floating-label{{ $errors->has('role') ? ' has-error' : '' }}">
+                            <select class="form-control" name="role" id="role">
+                                <option value=""></option>
+                                <option value="1">Siswa</option>
+                                <option value="2">Admin</option>
+                                <option value="3">Pengajar</option>
+                                <option value="4">Pendafar</option>
+                            </select>
+                            @if ($errors->has('role'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('role') }}</strong>
                                     </span>
                                 @endif
-                            </div>
+                            <label for="form_control_1">Status</label>
                         </div>
-
-                        
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-                            
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-                                
+                        <div class="form-group form-md-line-input form-md-floating-label{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="email" id="email" value="{{ old('email') }}">
                                 @if ($errors->has('email'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('email') }}</strong>
                                 </span>
                                 @endif
+                                <label for="form_control_1">Email</label>
+                                <span class="input-group-addon">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
                             </div>
                         </div>
-
-                        <div class="form-group{{ $errors->has('kelas') ? ' has-error' : '' }}">
-                            <label for="kelas" class="col-md-4 control-label">Kelas</label>
-
-                            <div class="col-md-6">
-                                <select name="kelas" class="form-control" id="kelas">
-                                    <option value="" disabled selected hidden>Pilih kelas</option>
-                                    @foreach($kelas as $kelas)
-                                    <option value="{{ $loop->iteration }}">{{ $kelas->kelas }}</option>
-                                    @endforeach
-                                </select>
-
-                                @if ($errors->has('kelas'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('kelas') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                        <div class="form-group form-md-line-input form-md-floating-label{{ $errors->has('kelas') ? ' has-error' : '' }}">
+                            <select class="form-control" name="kelas" id="kelas">
+                                <option value=""></option>
+                                @foreach($kelas as $kelas)
+                                <option value="{{ $loop->iteration }}">{{ $kelas->kelas }}</option>
+                                @endforeach
+                            </select>
+                            @if ($errors->has('kelas'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('kelas') }}</strong>
+                            </span>
+                        @endif
+                            <label for="form_control_1">Kelas</label>
                         </div>
-                        
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
+                        <div class="form-group form-md-line-input form-md-floating-label{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <input id="password" type="password" class="form-control" name="password" required>
+                            @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
-                            </div>
+                            <label for="form_control_1">Password</label>
                         </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
+                        <div class="form-group form-md-line-input form-md-floating-label">
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            <label for="form_control_1">Konfirmasi Password</label>
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                                <a href="/admin" class="btn btn-primary btn-md">Batal</a>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn dark">Simpan</button>
+                                    <button type="reset" class="btn default">Batal</button>
+                                </div>
                             </div>
                         </div>
                     </form>
+                    <!-- END FORM-->
                 </div>
             </div>
+            <!-- END VALIDATION STATES-->
         </div>
     </div>
 </div>
+<!-- END CONTENT BODY -->
 @endsection
+

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
-
 		<!-- Basic -->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<title>Teras Diskusi</title>
+		<title>Teras Diskusi @yield('title')</title>
 
 		<meta name="keywords" content="Education" />
 		<meta name="description" content="Teras Diskusi">
@@ -52,7 +51,8 @@
 		<link rel="stylesheet" href="/css/custom.css">
 
 		<!-- Head Libs -->
-		<script src="/vendor/modernizr/modernizr.min.js"></script>
+        <script src="/vendor/modernizr/modernizr.min.js"></script>
+        @yield('styles')
 
 	</head>
 	<body>
@@ -79,10 +79,24 @@
 										<nav class="header-nav-top mr-0">
 											<ul class="nav">
 												@if (Auth::guest())
-												<li><a href="{{ url('/daftar-bimbel') }}"><span class="ws-nowrap"><i class="fas fa-user-plus"></i></i> Daftar</span></a></li>
+												{{-- <li><a href="{{ url('/daftar-bimbel') }}"><span class="ws-nowrap"><i class="fas fa-user-plus"></i></i> Daftar</span></a></li> --}}
 												<li><a href="{{ url('/login') }}"><span class="ws-nowrap"><i class="fas fa-user"></i> Masuk</span></a></li>
-												@else
-												<li><a href="{{ url('/login') }}"><span class="ws-nowrap"><i class="fas fa-user"></i> {{ Auth::user()->name }}</span></a></li>
+                                                @else
+                                                @if(Auth::user()->role == 4)
+                                                <li><a class="ws-nowrap"><i class="fas fa-user"></i> {{ Auth::user()->name }}</a>
+                                                </li>
+                                                <li><a href="/tiket" class="ws-nowrap"><i class="fas fa-ticket-alt"></i> Tiket</a>
+                                                </li>
+                                                @else
+                                                <li><a href="/home" class="ws-nowrap"><i class="fas fa-user"></i> {{ Auth::user()->name }}</a>
+                                                </li>
+                                                @endif
+                                                <li><a href="{{ route('logout') }}"  onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();"><span class="ws-nowrap"><i class="fas fa-sign-out-alt"></i></i> Keluar</span></a>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        {{ csrf_field() }}
+                                                     </form>
+                                                </li>
 												@endif
 											</ul>
 										</nav>
@@ -109,25 +123,35 @@
 											<nav class="collapse">
 												<ul class="nav" id="mainNav">
 													<li>
-														<a class="nav-link active" href="{{ url('/') }}">
+														<a class="nav-link @yield('navbar_beranda')" href="{{ url('/') }}">
 															Beranda
 														</a>
 													</li>
 													<li>
-														<a class="nav-link" href="{{ url('/tentangkami') }}">
+														<a class="nav-link @yield('navbar_tentang')" href="{{ url('/tentangkami') }}">
 															Tentang Kami
 														</a>
 													</li>
 													<li>
-														<a class="nav-link" href="{{ url('/kegiatan') }}">
+														<a class="nav-link @yield('navbar_berita')" href="{{ url('/kegiatan') }}">
 															Berita
 														</a>
 													</li>
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-item dropdown-toggle @yield('navbar_guru')">
+                                                            Guru Digital
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="/info">Info</a></li>
+                                                            <li><a class="dropdown-item" href="/program">Program</a></li>
+                                                            <li><a class="dropdown-item" href="/event">Berita</a></li>
+                                                        </ul>
+                                                    </li>
 													<li>
-														<a class="nav-link" href="{{ url('/kontak') }}">
-															Kontak
-														</a>
-													</li>
+                                                        <a class="nav-link @yield('navbar_kontak')" href="{{ url('/kontak') }}">
+                                                            Kontak
+                                                        </a>
+                                                    </li>
 												</ul>
 											</nav>
 										</div>
@@ -142,22 +166,6 @@
 				</div>
 			</header>
 			<div role="main" class="main">
-
-                <section class="page-header custom-page-header background-color-quaternary parallax mb-0" data-plugin-parallax data-plugin-options="{'speed': 1.5}" data-image-src="img/demos/education/parallax/parallax-7.jpg">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                <h1 class="font-weight-bold">Masuk <span class="text-color-light">Jelajahi lebih jauh</span></h1>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul class="breadcrumb pull-right">
-                                    <li><a href="/">Beranda</a></li>
-                                    <li class="active text-color-light">Masuk</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
                 @yield('content')
 
@@ -190,7 +198,7 @@
 										hs.src = ('//s10.histats.com/js15_as.js');
 										(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
 										})();</script>
-										<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4222756&101" alt="" border="0"></a></noscript>
+										<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4222756&101"></a></noscript>
 									<!-- Histats.com  END  -->
 								</div>
 							</div>
@@ -224,7 +232,8 @@
 					</div>
 				</div>
 			</footer>
-		</div>
+        </div>
+
 
 		<!-- Vendor -->
 		<script src="/vendor/jquery/jquery.min.js"></script>
@@ -258,8 +267,7 @@
 		<script src="/js/custom.js"></script>
 
 		<!-- Theme Initialization Files -->
-		<script src="/js/theme.init.js"></script>
+        <script src="/js/theme.init.js"></script>
 
-
-	</body>
+        @yield('scripts')
 </html>
